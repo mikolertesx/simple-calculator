@@ -1,7 +1,7 @@
-.numeric-button {
+.operation-button {
   flex-basis: calc(80% / 4);
   height: 14vh;
-  background: rgb(61, 61, 61);
+  background: rgb(44, 43, 43);
   border: 1px solid black;
   margin: 0px 5px;
   color: white;
