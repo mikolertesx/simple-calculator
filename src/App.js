@@ -17,20 +17,36 @@ function App() {
   const [lastOperator, setLastOperator] = useState(null);
 
   const operationButtonHandler = (operator) => {
-    if (operators[operator]) {
-      if (isNaN(+display) || isNaN(+currentValue)) { return ;}
-      setLastOperator(operator);
+    let _display = display;
+    let _currentValue = currentValue;
+    let _lastOperator = lastOperator;
+
+    const doOperation = (operator) => {
       const operation = operators[operator];
-      // Do the math.
-      if (currentValue === null) {
-        setCurrentValue(+display);
-        setDisplay(null);
-      } else if(display) {
-        setCurrentValue((prevValue) => {
-          setDisplay(null);
-          return operation(prevValue, +display);
-        });
+      if (_currentValue === null) {
+        _currentValue = +_display;
+        _display = null;
+      } else if(_display) {
+        _currentValue = operation(_currentValue, +_display);
+        _display = null;
       }
+    }
+
+    if (_lastOperator !== null && operators[_lastOperator]) {
+      doOperation(_lastOperator);
+    }
+
+    if (operators[operator]) {
+      if (isNaN(+_display) || isNaN(+_currentValue)) { return ;}
+      _lastOperator = operator;
+      // Do the math.
+      doOperation(operator);
+      
+      // Save to the state.
+      setLastOperator(_lastOperator);
+      setDisplay(_display);
+      setCurrentValue(_currentValue);
+
     } else {
       // Do the procedure.
       procedures[operator](
