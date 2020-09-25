@@ -8,6 +8,8 @@
   margin-top: 32px;
   margin-bottom: 32px;
 
+  border: 1px solid black;
+
   display: flex;
   align-items: center;
 }

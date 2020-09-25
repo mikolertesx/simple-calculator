@@ -5,4 +5,12 @@
   border: 1px solid black;
   margin: 0px 5px;
   color: white;
+  transition: all 0.3s;
+}
+
+.numeric-button:hover,
+.numeric-button:active {
+  background: white;
+  color: rgb(61, 61, 61);
+  cursor: pointer;
 }

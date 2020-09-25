@@ -6,3 +6,11 @@
   margin: 0px 5px;
   color: white;
 }
+
+.operation-button:hover,
+.operation-button:active {
+  background: white;
+  font-size: 32px;
+  color: rgb(44, 43, 43);
+  cursor: pointer;
+}
