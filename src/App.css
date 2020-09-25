@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  max-width: 95%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.calc-buttons {
+  margin: auto;
+  width: 400;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.calc-buttons > button {
+  margin-bottom: 5px;
+}

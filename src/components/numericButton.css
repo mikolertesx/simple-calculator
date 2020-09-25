@@ -1,0 +1,7 @@
+.numeric-button {
+  flex-basis: 33%;
+  background: gray;
+  border: 1px solid black;
+  color: white;
+  padding: 32px;
+}
