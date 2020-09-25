@@ -9,8 +9,7 @@
   text-align: center;
 }
 
-.numeric-button:hover,
-.numeric-button:active {
+.numeric-button:hover {
   background: white;
   color: rgb(61, 61, 61);
   cursor: pointer;

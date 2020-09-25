@@ -48,17 +48,17 @@ function App() {
 
   let currentOperation;
 
-  if (currentValue && lastOperator) {
+  if (currentValue !== null && lastOperator !== null) {
     currentOperation = `${currentValue} ${lastOperator} ...`;
   }
 
-  if (display && currentValue && lastOperator) {
+  if (display !== null && currentValue !== null && lastOperator !== null) {
     currentOperation = `${currentValue} ${lastOperator} ${display}`;
   }
 
   return (
     <div className="App">
-      <Display text={display || currentValue} subtext={currentOperation} />
+      <Display text={display === null ? currentValue: display} subtext={currentOperation} />
       <div className="calc-buttons">
         {appLayout.map((value) => {
           return isNaN(+value) ? (

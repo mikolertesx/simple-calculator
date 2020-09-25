@@ -8,8 +8,7 @@
   text-align: center;
 }
 
-.operation-button:hover,
-.operation-button:active {
+.operation-button:hover {
   background: white;
   font-size: 32px;
   color: rgb(44, 43, 43);

@@ -6,8 +6,8 @@ const Display = (children) => {
   const {text, subtext} = children;
 
   return <div className="Display">
-    <small>{subtext || ''}</small>
-    <p>{text || 'Input numbers.'}</p>
+    <small>{subtext === null ? '':subtext}</small>
+    <p>{text === null ? 'Input numbers':text}</p>
   </div>
 }
 
