@@ -5,6 +5,7 @@ const operations = {
   DEL: "DEL",
   PRODUCT: "X",
   SUBSTRACT: "-",
+  DIVISION: '/',
   ADD: "+",
   EQUAL: "=",
   SWITCHSIGN: "+/-",
@@ -31,7 +32,8 @@ const appLayout = [
   operations.SWITCHSIGN,
   0,
   operations.ADDDOT,
-  operations.EQUAL,
+  operations.DIVISION,
+  operations.EQUAL
 ];
 
 export {operations, appLayout};

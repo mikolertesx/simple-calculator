@@ -1,11 +1,12 @@
 .numeric-button {
   flex-basis: calc(80% / 4);
-  height: 14vh;
+  height: 12vh;
   background: rgb(61, 61, 61);
   border: 1px solid black;
   margin: 0px 5px;
   color: white;
   transition: all 0.3s;
+  text-align: center;
 }
 
 .numeric-button:hover,
