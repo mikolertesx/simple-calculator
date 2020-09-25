@@ -18,6 +18,7 @@ function App() {
 
   const operationButtonHandler = (operator) => {
     if (operators[operator]) {
+      if (isNaN(+display) || isNaN(+currentValue)) { return ;}
       setLastOperator(operator);
       const operation = operators[operator];
       // Do the math.
@@ -42,7 +43,7 @@ function App() {
 
   const numericButtonHandler = (number) => {
     setDisplay((prevDisplay) =>
-      prevDisplay === null || +prevDisplay === 0 ? number.toString() : prevDisplay + number.toString()
+      prevDisplay === null || +prevDisplay === 0 || isNaN(+prevDisplay) ? number.toString() : prevDisplay + number.toString()
     );
   };
 
