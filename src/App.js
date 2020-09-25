@@ -42,7 +42,7 @@ function App() {
 
   const numericButtonHandler = (number) => {
     setDisplay((prevDisplay) =>
-      prevDisplay === null || prevDisplay === 0 ? number.toString() : prevDisplay + number.toString()
+      prevDisplay === null || +prevDisplay === 0 ? number.toString() : prevDisplay + number.toString()
     );
   };
 
