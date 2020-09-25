@@ -8,14 +8,17 @@ import NumericButton from "./components/numericButton";
 import OperationButton from "./components/operationButton";
 
 import operators from "./utils/operators";
+import procedures from "./utils/procedures";
 import { appLayout } from "./utils/layout";
 
 function App() {
   const [display, setDisplay] = useState(null);
   const [currentValue, setCurrentValue] = useState(null);
+  const [lastOperator, setLastOperator] = useState(null);
 
   const operationButtonHandler = (operator) => {
     if (operators[operator]) {
+      setLastOperator(operator);
       const operation = operators[operator];
       // Do the math.
       if (currentValue === null) {
@@ -29,6 +32,7 @@ function App() {
       }
     } else {
       // Do the procedure.
+      procedures[operator](display, setDisplay, setCurrentValue, currentValue, setLastOperator, lastOperator);
     }
   };
 
