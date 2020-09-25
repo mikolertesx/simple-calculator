@@ -24,7 +24,7 @@ function App() {
       if (currentValue === null) {
         setCurrentValue(+display);
         setDisplay(null);
-      } else {
+      } else if(display) {
         setCurrentValue((prevValue) => {
           setDisplay(null);
           return operation(prevValue, +display);
@@ -32,7 +32,11 @@ function App() {
       }
     } else {
       // Do the procedure.
-      procedures[operator](display, setDisplay, setCurrentValue, currentValue, setLastOperator, lastOperator);
+      procedures[operator](
+        [display, setDisplay],
+        [currentValue, setCurrentValue],
+        [lastOperator, setLastOperator]
+      );
     }
   };
 
