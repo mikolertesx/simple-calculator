@@ -1,9 +1,11 @@
 import operators from './operators';
 
 const procedures = {
-  'CE': (displayState, valueState) => {
+  'CE': (displayState, valueState, operatorState) => {
     const [, setDisplay] = displayState;
     const [, setCurrentValue] = valueState;
+    const [, setOperatorState] = operatorState;
+    setOperatorState(null);
     setDisplay(null);
     setCurrentValue(null);
   },

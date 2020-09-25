@@ -46,9 +46,19 @@ function App() {
     );
   };
 
+  let currentOperation;
+
+  if (currentValue && lastOperator) {
+    currentOperation = `${currentValue} ${lastOperator} ...`;
+  }
+
+  if (display && currentValue && lastOperator) {
+    currentOperation = `${currentValue} ${lastOperator} ${display}`;
+  }
+
   return (
     <div className="App">
-      <Display text={display || currentValue} />
+      <Display text={display || currentValue} subtext={currentOperation} />
       <div className="calc-buttons">
         {appLayout.map((value) => {
           return isNaN(+value) ? (
@@ -56,6 +66,7 @@ function App() {
               onClick={() => operationButtonHandler(value)}
               key={`btn-${value}`}
               text={value}
+              fill={value === '='}
             />
           ) : (
             <NumericButton

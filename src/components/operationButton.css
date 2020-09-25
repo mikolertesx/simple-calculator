@@ -15,3 +15,7 @@
   color: rgb(44, 43, 43);
   cursor: pointer;
 }
+
+.big-button {
+  flex-basis: 85% !important;
+}
