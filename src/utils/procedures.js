@@ -16,7 +16,7 @@ const procedures = {
   'DEL': (displayState, _valueState, _operatorState) => {
     const [, setDisplay] = displayState;
     setDisplay(prevDisplay => {
-      if (!prevDisplay) return null;
+      if (prevDisplay === null) return null;
       if (!prevDisplay.length === 1) return null;
       
       return prevDisplay.slice(0, -1);
@@ -27,7 +27,7 @@ const procedures = {
     const [currentValue, setCurrentValue] = valueState;
     const [lastOperator, setLastOperator] = operatorState;
     if (lastOperator === null) {return ;}
-    if (!display || !currentValue) { return ;}
+    if (display === null || currentValue === null) { return ;}
     setCurrentValue(prevValue => {
       return operators[lastOperator](prevValue, +display);
     });
@@ -36,7 +36,7 @@ const procedures = {
   },
   '+/-': (displayState, _valueState, _operatorState) => {
     const [display, setDisplay] = displayState;
-    if (!display || isNaN(+display)) return ;
+    if (display === null || isNaN(+display)) return ;
     setDisplay((prevDisplay) => {
       return +prevDisplay * - 1;
     });
