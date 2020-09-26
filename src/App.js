@@ -37,16 +37,21 @@ function App() {
     }
 
     if (operators[operator]) {
-      if (isNaN(+_display) || isNaN(+_currentValue)) { return ;}
+      if (isNaN(+_display) || isNaN(+_currentValue)) {
+        // Save to the state.
+        setLastOperator(null);
+        setCurrentValue(null);
+        console.log(_display, _currentValue);
+        return;
+      }
       _lastOperator = operator;
       // Do the math.
       doOperation(operator);
-      
+
       // Save to the state.
       setLastOperator(_lastOperator);
       setDisplay(_display);
       setCurrentValue(_currentValue);
-
     } else {
       // Do the procedure.
       procedures[operator](
@@ -58,8 +63,11 @@ function App() {
   };
 
   const numericButtonHandler = (number) => {
+    console.log('display', display);
     setDisplay((prevDisplay) =>
-      prevDisplay === null || +prevDisplay === 0 || isNaN(+prevDisplay) ? number.toString() : prevDisplay + number.toString()
+      prevDisplay === null || +prevDisplay === 0 || isNaN(+prevDisplay)
+        ? number.toString()
+        : prevDisplay + number.toString()
     );
   };
 
@@ -75,7 +83,10 @@ function App() {
 
   return (
     <div className="App">
-      <Display text={display === null ? currentValue: display} subtext={currentOperation} />
+      <Display
+        text={display === null ? currentValue : display}
+        subtext={currentOperation}
+      />
       <div className="calc-buttons">
         {appLayout.map((value) => {
           return isNaN(+value) ? (
@@ -83,7 +94,7 @@ function App() {
               onClick={() => operationButtonHandler(value)}
               key={`btn-${value}`}
               text={value}
-              fill={value === '='}
+              fill={value === "="}
             />
           ) : (
             <NumericButton
